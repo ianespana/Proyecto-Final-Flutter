@@ -57,6 +57,48 @@ class Stocks extends StatelessWidget {
               percentage: -0.96,
               color: Theme.of(context).colorScheme.primary,
             ),
+            Stock(
+              name: 'Google',
+              value: 89.28,
+              percentage: -2.43,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'HP',
+              value: 28.85,
+              percentage: -1.28,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'Intel',
+              value: 27.85,
+              percentage: -1.07,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'NVIDIA',
+              value: 194,
+              percentage: -4.77,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'Qualcomm',
+              value: 130.33,
+              percentage: -2.31,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'Tesla',
+              value: 168.80,
+              percentage: -5.10,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            Stock(
+              name: 'Xiaomi',
+              value: 12.62,
+              percentage: -5.96,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ]),
     );
   }
