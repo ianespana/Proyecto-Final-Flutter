@@ -7,6 +7,7 @@ class Achievements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: GridView.extent(
           maxCrossAxisExtent: 150,
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),

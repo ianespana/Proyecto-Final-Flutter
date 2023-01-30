@@ -31,82 +31,125 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: const ColorScheme(
-            brightness: Brightness.dark,
-            primary: primaryColor,
-            onPrimary: Colors.white,
-            secondary: secondaryColor,
-            onSecondary: Colors.white,
-            error: errorColor,
-            onError: Colors.black,
-            background: backgroundColor,
-            onBackground: Colors.white,
-            surface: primaryColor,
-            onSurface: Colors.white,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: const ColorScheme(
+          brightness: Brightness.dark,
+          primary: primaryColor,
+          onPrimary: Colors.white,
+          secondary: secondaryColor,
+          onSecondary: Colors.white,
+          error: errorColor,
+          onError: Colors.black,
+          background: backgroundColor,
+          onBackground: Colors.white,
+          surface: primaryColor,
+          onSurface: Colors.white,
+        ),
+      ),
+      home: Home(
+        userName: userName,
+        profileImage: profileImage,
+        balance: balance,
+      ),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  final String userName;
+  final String profileImage;
+  final double balance;
+
+  const Home(
+      {super.key,
+      required this.userName,
+      required this.profileImage,
+      required this.balance});
+
+  @override
+  State<Home> createState() => _HomeState(
+      userName: userName, profileImage: profileImage, balance: balance);
+}
+
+class _HomeState extends State<Home> {
+  final String userName;
+  final String profileImage;
+  final double balance;
+
+  _HomeState(
+      {required this.userName,
+      required this.profileImage,
+      required this.balance});
+
+  @override
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          bottomOpacity: 0.0,
+          elevation: 0.0,
+        ),
+        drawer: Drawer(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              SizedBox(
+                height: 64,
+                child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.background,
+                  ),
+                  child: const Text(""),
+                ),
+              ),
+              ListTile(
+                title: const Text(
+                  'Item 1',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onTap: () {},
+              ),
+              ListTile(
+                title: const Text(
+                  'Item 2',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onTap: () {},
+              ),
+            ],
           ),
         ),
-        home: Builder(
-          builder: (context) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              bottomOpacity: 0.0,
-              elevation: 0.0,
-            ),
-            drawer: Drawer(
-              backgroundColor: backgroundColor,
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  const SizedBox(
-                    height: 64,
-                    child: DrawerHeader(
-                      decoration: BoxDecoration(
-                        color: backgroundColor,
-                      ),
-                      child: Text(""),
-                    ),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      'Item 1',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                  ListTile(
-                    title: const Text(
-                      'Item 2',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onTap: () {},
-                  ),
-                ],
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              TitleBar(
+                userName: userName,
               ),
-            ),
-            backgroundColor: backgroundColor,
-            body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  TitleBar(userName: userName,),
-                  ProfileCard(userName: userName, profileImage: profileImage, balance: balance,),
-                  const AchievementsSection(),
-                  const StocksSection(),
-                ],
+              ProfileCard(
+                userName: userName,
+                profileImage: profileImage,
+                balance: balance,
               ),
-            ),
+              const AchievementsSection(),
+              const StocksSection(),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
 
@@ -141,7 +184,11 @@ class ProfileCard extends StatelessWidget {
   final String profileImage;
   final double balance;
 
-  const ProfileCard({super.key, required this.userName, required this.profileImage, required this.balance});
+  const ProfileCard(
+      {super.key,
+      required this.userName,
+      required this.profileImage,
+      required this.balance});
 
   @override
   Widget build(BuildContext context) {
@@ -153,16 +200,16 @@ class ProfileCard extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => Profile(
-                    userName: userName,
-                    profileImage: profileImage,
-                    balance: balance,
-                  )));
+                        userName: userName,
+                        profileImage: profileImage,
+                        balance: balance,
+                      )));
         },
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
           height: 90,
           decoration: BoxDecoration(
-            color: primaryColor,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Padding(
@@ -204,8 +251,7 @@ class ProfileCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Flexible(
-                    fit: FlexFit.tight, child: SizedBox()),
+                const Flexible(fit: FlexFit.tight, child: SizedBox()),
                 const Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.white70,
@@ -245,8 +291,7 @@ class AchievementsSection extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                          const Achievements()));
+                          builder: (context) => const Achievements()));
                 },
                 child: const Text(
                   "Ver todos",
@@ -352,8 +397,7 @@ class StocksSection extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                          const Achievements()));
+                          builder: (context) => const Achievements()));
                 },
                 child: const Text(
                   "Ver todo",
@@ -374,42 +418,42 @@ class StocksSection extends StatelessWidget {
               crossAxisCount: 2,
               mainAxisSpacing: 13,
               crossAxisSpacing: 18,
-              children: const [
+              children: [
                 Stock(
                   name: 'AMD',
                   value: 73.12,
                   percentage: -3.06,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Stock(
                   name: 'Apple',
                   value: 143.17,
                   percentage: -1.90,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Stock(
                   name: 'Cisco',
                   value: 48.17,
                   percentage: -0.69,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Stock(
                   name: 'Dell',
                   value: 39.85,
                   percentage: -1.14,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Stock(
                   name: 'Facebook',
                   value: 147.6,
                   percentage: -2.72,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 Stock(
                   name: 'Garmin',
                   value: 97.75,
                   percentage: -0.96,
-                  color: primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
