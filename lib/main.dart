@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_final_flutter/achievements.dart';
+import 'package:proyecto_final_flutter/profile.dart';
+import 'package:proyecto_final_flutter/stock.dart';
 import 'achievement.dart';
 
 const Color backgroundColor = Color(0xFF1D1E23);
@@ -112,59 +114,68 @@ class MyApp extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20),
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 30),
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              image: NetworkImage(profileImage),
-                              fit: BoxFit.cover,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            const Profile()));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(right: 30),
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: NetworkImage(profileImage),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "YOUR BALANCE",
-                              style: TextStyle(
-                                color: Colors.orange,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "YOUR BALANCE",
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "\$$balance",
-                              style: const TextStyle(
-                                color: Colors.white70,
-                                fontSize: 25,
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "\$$balance",
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const Flexible(fit: FlexFit.tight, child: SizedBox()),
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white70,
-                          size: 20,
-                        ),
-                      ],
+                            ],
+                          ),
+                          const Flexible(fit: FlexFit.tight, child: SizedBox()),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white70,
+                            size: 20,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -305,31 +316,17 @@ class MyApp extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
-                        child: GridView.extent(
-                          maxCrossAxisExtent: 150,
+                        child: GridView.count(
                           shrinkWrap: true,
+                          crossAxisCount: 2,
                           children: const [
-                            Achievement(
-                                name: '1 week streak',
-                                icon: Icons.spa,
-                                color: Color(0xFFFF9444)),
-                            Achievement(
+                            Stock(
                               name: '1 week streak',
+                              value: 0.0,
+                              percentage: 0.0,
+                              isUp: false,
                               icon: Icons.spa,
-                              color: Color(0xFFBEE8B9),
-                              margin: EdgeInsets.only(left: 10),
-                            ),
-                            Achievement(
-                              name: '1 week streak',
-                              icon: Icons.spa,
-                              color: Color(0xFFADF1FA),
-                              margin: EdgeInsets.only(left: 10),
-                            ),
-                            Achievement(
-                              name: '1 week streak',
-                              icon: Icons.spa,
-                              color: Color(0xFFFFC3DF),
-                              margin: EdgeInsets.only(left: 10),
+                              color: primaryColor,
                             ),
                           ],
                         ),
