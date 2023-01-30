@@ -20,30 +20,33 @@ class Achievement extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
         children: [
-          Container(
-            padding: const EdgeInsets.only(top: 20),
-            child: Icon(
-              icon,
-              color: Colors.white70,
-              size: 40,
-            ),
-          ),
-          const Spacer(),
-          Container(
-            padding: const EdgeInsets.only(left: 2, right: 2),
-            child: Text(
-              name,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 10,
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              padding: const EdgeInsets.only(top: 15),
+              child: Icon(
+                icon,
+                color: Colors.white70,
+                size: 40,
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: const EdgeInsets.only(left: 2, right: 2, bottom: 5),
+              child: Text(
+                name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 10,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
