@@ -21,44 +21,41 @@ class Achievements extends StatelessWidget {
               name: 'Racha de dos semanas',
               icon: Icons.spa,
               color: Color(0xFFBEE8B9),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de tres semanas',
               icon: Icons.spa,
               color: Color(0xFFADF1FA),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de cuatro semanas',
               icon: Icons.spa,
               color: Color(0xFFFFC3DF),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de cinco semanas',
               icon: Icons.spa,
               color: Color(0xFFFF9444),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de seis semanas',
               icon: Icons.spa,
               color: Color(0xFFBEE8B9),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de siete semanas',
               icon: Icons.spa,
               color: Color(0xFFADF1FA),
-              margin: EdgeInsets.only(left: 10),
             ),
             Achievement(
               name: 'Racha de ocho semanas',
               icon: Icons.spa,
               color: Color(0xFFFFC3DF),
-              margin: EdgeInsets.only(left: 10),
             ),
+            Achievement(
+                name: 'Racha de nueve semanas',
+                icon: Icons.spa,
+                color: Color(0xFFFF9444)),
           ]),
     );
   }
