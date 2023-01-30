@@ -25,18 +25,23 @@ class Achievement extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(top: 20),
             child: Icon(
               icon,
               color: Colors.white70,
               size: 40,
             ),
           ),
-          Text(
-            name,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 10,
+          const Spacer(),
+          Container(
+            padding: const EdgeInsets.only(left: 2, right: 2),
+            child: Text(
+              name,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 10,
+              ),
             ),
           ),
         ],
