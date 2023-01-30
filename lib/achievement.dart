@@ -33,7 +33,7 @@ class Achievement extends StatelessWidget {
             ),
           ),
           Text(
-            "$name",
+            name,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 10,

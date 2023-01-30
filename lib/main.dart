@@ -3,7 +3,9 @@ import 'package:proyecto_final_flutter/achievements.dart';
 import 'achievement.dart';
 
 const Color backgroundColor = Color(0xFF1D1E23);
-const Color cardColor = Color(0xff2a292f);
+const Color primaryColor = Color(0xff2a292f);
+const Color secondaryColor = Color(0xff2a292f);
+const Color errorColor = Color(0xfff83838);
 
 void main() {
   runApp(const MyApp(userName: 'John', profileImage: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg', balance: 10000));
@@ -21,16 +23,72 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.grey,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        brightness: Brightness.dark,
+        colorScheme: const ColorScheme(
+          brightness: Brightness.dark,
+          primary: primaryColor,
+          onPrimary: Colors.white,
+          secondary: secondaryColor,
+          onSecondary: Colors.white,
+          error: errorColor,
+          onError: Colors.black,
+          background: backgroundColor,
+          onBackground: Colors.white,
+          surface: primaryColor,
+          onSurface: Colors.white,
+        ),
       ),
       home: Builder(builder: (context) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          bottomOpacity: 0.0,
+          elevation: 0.0,
+        ),
+        drawer: Drawer(
+          backgroundColor: backgroundColor,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const SizedBox(
+                height: 64,
+                child: DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                  ),
+                  child: Text(""),
+                ),
+              ),
+              ListTile(
+                title: const Text(
+                  'Item 1',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onTap: () {
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Item 2',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onTap: () {
+                },
+              ),
+            ],
+          ),
+        ),
         backgroundColor: backgroundColor,
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -51,7 +109,7 @@ class MyApp extends StatelessWidget {
                 margin: const EdgeInsets.only(left: 20, right: 20),
                 height: 90,
                 decoration: BoxDecoration(
-                  color: cardColor,
+                  color: primaryColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -153,24 +211,61 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Investment Portfolio",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Achievements())
+                          );
+                        },
+                        child: const Text(
+                          "See all",
+                          style: TextStyle(
+                            color: Colors.orange,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: GridView.extent(
+                        maxCrossAxisExtent: 150,
+                        shrinkWrap: true,
+                        children: const [
+                          Achievement(name: '1 week streak', icon: Icons.spa, color: Color(0xFFFF9444)),
+                          Achievement(name: '1 week streak', icon: Icons.spa, color: Color(0xFFBEE8B9), margin: EdgeInsets.only(left: 10),),
+                          Achievement(name: '1 week streak', icon: Icons.spa, color: Color(0xFFADF1FA), margin: EdgeInsets.only(left: 10),),
+                          Achievement(name: '1 week streak', icon: Icons.spa, color: Color(0xFFFFC3DF), margin: EdgeInsets.only(left: 10),),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),)
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const Center(
-        child: Text("Profile Page"),
-      ),
     );
   }
 }
