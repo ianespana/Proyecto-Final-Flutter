@@ -120,7 +120,7 @@ class MyApp extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                            const Profile()));
+                            Profile(userName: userName, profileImage: profileImage, balance: balance,)));
                   },
                   child: Container(
                     margin: const EdgeInsets.only(left: 20, right: 20),

@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  final String userName;
+  final String profileImage;
+  final double balance;
+
+  const Profile(
+      {super.key,
+        required this.userName,
+        required this.profileImage,
+        required this.balance});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: const [
+        children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg'),
+            backgroundImage: NetworkImage(profileImage),
           ),
         ],
       ),
