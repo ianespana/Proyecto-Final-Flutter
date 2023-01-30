@@ -7,12 +7,12 @@ import 'package:proyecto_final_flutter/stocks.dart';
 
 const Color backgroundColor = Color(0xFF1D1E23);
 const Color primaryColor = Color(0xff2a292f);
-const Color secondaryColor = Color(0xff2a292f);
+const Color secondaryColor = Color(0xff333138);
 const Color errorColor = Color(0xfff83838);
 
 void main() {
   runApp(const MyApp(
-      userName: 'John',
+      userName: 'John Smith',
       profileImage:
           'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg',
       balance: 10000));
@@ -222,12 +222,8 @@ class ProfileCard extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 30),
                   height: 50,
                   width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage(profileImage),
-                      fit: BoxFit.cover,
-                    ),
+                  child: CircleAvatar(
+                    backgroundImage: NetworkImage(profileImage),
                   ),
                 ),
                 Column(
