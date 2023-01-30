@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_final_flutter/achievement.dart';
 import 'package:proyecto_final_flutter/achievements.dart';
 import 'package:proyecto_final_flutter/profile.dart';
 import 'package:proyecto_final_flutter/stock.dart';
-import 'achievement.dart';
+import 'package:proyecto_final_flutter/stocks.dart';
 
 const Color backgroundColor = Color(0xFF1D1E23);
 const Color primaryColor = Color(0xff2a292f);
@@ -397,7 +398,7 @@ class StocksSection extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Achievements()));
+                          builder: (context) => const Stocks()));
                 },
                 child: const Text(
                   "Ver todo",
