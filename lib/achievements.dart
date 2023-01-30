@@ -22,48 +22,54 @@ class Achievements extends StatelessWidget {
           crossAxisSpacing: 10,
           children: const [
             Achievement(
-                name: 'Racha de una semana',
-                icon: Icons.spa,
-                color: Color(0xFFFF9444)),
+              name: 'Racha de una semana',
+              icon: AssetImage("icons/achievements/crystal-512x512-2834760.png"),
+              color: Color(0xFFFF9444)),
             Achievement(
               name: 'Racha de dos semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/crystal-512x512-2834772.png"),
               color: Color(0xFFBEE8B9),
             ),
             Achievement(
               name: 'Racha de tres semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/crystal-512x512-2834767.png"),
               color: Color(0xFFADF1FA),
             ),
             Achievement(
               name: 'Racha de cuatro semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/diamond-512x512-2834756.png"),
               color: Color(0xFFFFC3DF),
             ),
             Achievement(
               name: 'Racha de cinco semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/diamond-512x512-2834752.png"),
               color: Color(0xFFFF9444),
+              iconColor: Colors.grey,
             ),
             Achievement(
               name: 'Racha de seis semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/diamond-512x512-2834750.png"),
               color: Color(0xFFBEE8B9),
+              iconColor: Colors.grey,
             ),
             Achievement(
               name: 'Racha de siete semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/diamond-512x512-2834753.png"),
               color: Color(0xFFADF1FA),
+              iconColor: Colors.grey,
             ),
             Achievement(
               name: 'Racha de ocho semanas',
-              icon: Icons.spa,
+              icon: AssetImage("icons/achievements/diamond-512x512-2834764.png"),
               color: Color(0xFFFFC3DF),
+              iconColor: Colors.grey,
             ),
             Achievement(
-                name: 'Racha de nueve semanas',
-                icon: Icons.spa,
-                color: Color(0xFFFF9444)),
+              name: 'Racha de nueve semanas',
+              icon: AssetImage("icons/achievements/heart-diamond-512x512-2834759.png"),
+              color: Color(0xFFFF9444),
+              iconColor: Colors.grey,
+            ),
           ]),
     );
   }

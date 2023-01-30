@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 class Achievement extends StatelessWidget {
   final String name;
-  final IconData icon;
+  final AssetImage icon;
   final Color color;
   final EdgeInsets margin;
   final EdgeInsets padding;
+  final Color? iconColor;
 
-  const Achievement({super.key, required this.name, required this.icon, required this.color, this.margin = EdgeInsets.zero, this.padding = EdgeInsets.zero});
+  const Achievement({super.key, required this.name, required this.icon, required this.color, this.margin = EdgeInsets.zero, this.padding = EdgeInsets.zero, this.iconColor});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +27,11 @@ class Achievement extends StatelessWidget {
             alignment: Alignment.center,
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
-              child: Icon(
-                icon,
-                color: Colors.white70,
-                size: 40,
+              child: Image(
+                image: icon,
+                width: 40,
+                height: 40,
+                color: iconColor,
               ),
             ),
           ),

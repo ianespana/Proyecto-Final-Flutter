@@ -19,7 +19,7 @@ class Stock extends StatelessWidget {
     AssetImage? parsedIcon;
 
     if (icon == null) {
-      parsedIcon = AssetImage("icons/${name.toLowerCase()}.png");
+      parsedIcon = AssetImage("icons/stocks/${name.toLowerCase()}.png");
     } else {
       parsedIcon = icon;
     }
