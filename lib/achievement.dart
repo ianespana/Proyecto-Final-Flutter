@@ -23,9 +23,9 @@ class Achievement extends StatelessWidget {
       child: Stack(
         children: [
           Align(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             child: Container(
-              padding: const EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(bottom: 15),
               child: Icon(
                 icon,
                 color: Colors.white70,
